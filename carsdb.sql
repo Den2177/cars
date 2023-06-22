@@ -79,7 +79,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-INSERT INTO `bookings` VALUES (1,'2023-06-22','2023-06-24',3,1,3,20664,'2023-06-21 07:48:23','2023-06-21 09:36:31'),(2,'2023-06-22','2023-06-25',1,2,1,62700,'2023-06-21 08:12:53','2023-06-21 08:12:53'),(3,'2023-06-22','2023-06-25',1,2,1,62700,'2023-06-21 09:35:33','2023-06-21 09:35:33');
+INSERT INTO `bookings` VALUES (1,'2023-06-22','2023-06-24',2,1,3,20664,'2023-06-21 07:48:23','2023-06-22 12:40:40'),(2,'2023-06-22','2023-06-25',1,2,1,62700,'2023-06-21 08:12:53','2023-06-22 12:40:48'),(3,'2023-06-22','2023-06-25',1,2,1,62700,'2023-06-21 09:35:33','2023-06-21 09:35:33');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +97,7 @@ CREATE TABLE `branches` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +106,7 @@ CREATE TABLE `branches` (
 
 LOCK TABLES `branches` WRITE;
 /*!40000 ALTER TABLE `branches` DISABLE KEYS */;
-INSERT INTO `branches` VALUES (1,'Москва','/images/6492d25c1bf5b.png','2023-06-21 07:35:08','2023-06-21 07:35:08'),(2,'Краснодар','/images/6492d2a06c8c9.png','2023-06-21 07:36:16','2023-06-21 07:36:16'),(3,'Питер','/images/6492d2cb9d6e6.png','2023-06-21 07:36:59','2023-06-21 07:36:59'),(4,'Новосибирск','/images/6492d30fb3d37.png','2023-06-21 07:38:07','2023-06-21 07:38:07'),(6,'dddd','/images/6492ef289bca4.png','2023-06-21 09:38:00','2023-06-21 09:38:00');
+INSERT INTO `branches` VALUES (1,'Москва','/images/6492d25c1bf5b.png','2023-06-21 07:35:08','2023-06-21 07:35:08'),(2,'Краснодар','/images/6492d2a06c8c9.png','2023-06-21 07:36:16','2023-06-21 07:36:16'),(3,'Питер','/images/6492d2cb9d6e6.png','2023-06-21 07:36:59','2023-06-21 07:36:59'),(4,'Новосибирск','/images/6492d30fb3d37.png','2023-06-21 07:38:07','2023-06-21 07:38:07'),(7,'Томск','/images/64946bbbe9096.png','2023-06-22 12:41:47','2023-06-22 12:41:47');
 /*!40000 ALTER TABLE `branches` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +162,7 @@ CREATE TABLE `cars` (
   PRIMARY KEY (`id`),
   KEY `cars_branch_id_foreign` (`branch_id`),
   CONSTRAINT `cars_branch_id_foreign` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,7 +171,7 @@ CREATE TABLE `cars` (
 
 LOCK TABLES `cars` WRITE;
 /*!40000 ALTER TABLE `cars` DISABLE KEYS */;
-INSERT INTO `cars` VALUES (1,'Taoyta m7','#322AB','/images/6492d379d7bb6.png','Это очень хорошая машина просто супер во класс',7000,1,'2023-06-21 07:39:53','2023-06-21 07:39:53'),(2,'Mercedes Benz','#233AS23','/images/6492d4060a521.png','Это супер крутой мерседес бенз ваще класс купил сыну на день рождения ему два года доволен как собака собаке кстати тоже купил',15000,3,'2023-06-21 07:42:14','2023-06-21 07:42:14'),(3,'Lada largous X ray','#LA</3A','/images/6492d45e304f1.png','лада ларгус)',3332,1,'2023-06-21 07:43:42','2023-06-21 07:43:42'),(4,'333jigul 5ogo godaddddd','#228228','/images/6492eee86be46.png','это новый улучшенный жигуль',8000,1,'2023-06-21 07:45:00','2023-06-21 09:37:11');
+INSERT INTO `cars` VALUES (1,'Taoyta m7','#322AB','/images/6492d379d7bb6.png','Это очень хорошая машина просто супер во класс',7000,1,'2023-06-21 07:39:53','2023-06-21 07:39:53'),(2,'Mercedes Benz','#233AS23','/images/6492d4060a521.png','Это супер крутой мерседес бенз ваще класс купил сыну на день рождения ему два года доволен как собака собаке кстати тоже купил',15000,3,'2023-06-21 07:42:14','2023-06-21 07:42:14'),(3,'Lada largous X ray','#LA</3A','/images/6492d45e304f1.png','лада ларгус)',3332,1,'2023-06-21 07:43:42','2023-06-21 07:43:42'),(5,'jiGhoul x3 rizen 8','#228228','/images/64946c1be6e92.png','this is a very very good jigul',8000,1,'2023-06-22 12:43:23','2023-06-22 12:43:23');
 /*!40000 ALTER TABLE `cars` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-22 18:29:30
+-- Dump completed on 2023-06-22 18:45:37
