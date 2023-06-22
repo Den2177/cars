@@ -21,22 +21,22 @@
                         <div class="card vertical g20 sticky">
                             <h3 class="center">{{$user->first_name}} {{$user->last_name}} {{$user->middle_name}}</h3>
                             <div class="grid f2">
-                                <div class="counter-block">
+                                <a href="{{route('cards')}}" class="counter-block block">
                                     <div class="big-number">
                                         {{$user->cards->count()}}
                                     </div>
                                     <div class="counter-message center mt10">
                                         Банковских карт
                                     </div>
-                                </div>
-                                <div class="counter-block">
+                                </a>
+                                <a href="{{route('history.list')}}" class="counter-block block">
                                     <div class="big-number">
                                         {{$user->bookings->count()}}
                                     </div>
                                     <div class="counter-message center mt10">
                                         Бронирований
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="vertical g10 mt20">
                                 <a href="{{route('cards')}}" class="btn">Банковские карты</a>

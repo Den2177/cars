@@ -32,4 +32,13 @@ class BookingController extends Controller
 
         return redirect()->route('history.list');
     }
+
+    public function updateStatus(Booking $booking)
+    {
+        $booking->update([
+            'status_id' => request('status_id'),
+        ]);
+
+        return redirect()->route('admin');
+    }
 }

@@ -143,9 +143,53 @@
                             </table>
                         </div>
                     </div>
-                    @else
-                        <div class="card">Список машин пуст.</div>
-                    @endif
+                @else
+                    <div class="card">Список машин пуст.</div>
+                @endif
+
+                @if(count($bookings))
+                    <div class="vertical g20">
+                        <h3>Таблица машин</h3>
+                        <div class="card table-wrapper">
+                            <table class="table">
+                                <tr>
+                                    <th>Код бронирования</th>
+                                    <th>Номер заказчика</th>
+                                    <th>Статус бронирования</th>
+                                    <th>Изменить статус</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                @foreach($bookings as $booking)
+                                    <tr>
+                                        <td>{{$booking->id}}</td>
+                                        <td>{{$booking->user->phone}}</td>
+                                        <td>
+                                            <div class="status">
+                                                {{$booking->status->name}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <form action="{{route('bookings.status.update', $booking->id)}}" method="post" class="flex ais g5">
+                                                @csrf
+                                                @method('PATCH')
+                                                <select class="input w200" name="status_id">
+                                                    @foreach($statuses as $status)
+                                                        <option value="{{$status->id}}">{{$status->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <button class="btn" type="submit">Изменить</button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                @else
+                    <div class="card">Список бронирований пуст.</div>
+                @endif
             </div>
         </div>
     </div>

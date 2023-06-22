@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('date_from');
             $table->date('date_to');
+            $table->foreignId('status_id')->default(1)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('card_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedBigInteger('price');

@@ -971,3 +971,13 @@ a.search-btn {
 .block {
     display: block;
 }
+.status {
+    background-color: rgb(227, 236, 255);
+    color: #338bff;
+    padding: .3rem .8rem;
+    border-radius: 20px;
+    width: fit-content;
+}
+.w200 {
+    width: 200px;
+}

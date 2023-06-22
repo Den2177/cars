@@ -38,6 +38,8 @@ Route::middleware(\App\Http\Middleware\AuthCheck::class)->group(function () {
     Route::middleware(\App\Http\Middleware\AdminCheck::class)->group(function () {
         Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
+        Route::patch('/bookings/{booking}/status', [\App\Http\Controllers\BookingController::class, 'updateStatus'])->name('bookings.status.update');
+
         Route::post('/branches', [\App\Http\Controllers\BranchController::class, 'store'])->name('branches.store');
         Route::get('/branches/{branch}', [\App\Http\Controllers\BranchController::class, 'edit'])->name('branches.edit');
         Route::patch('/branches/{branch}', [\App\Http\Controllers\BranchController::class, 'update'])->name('branches.update');
